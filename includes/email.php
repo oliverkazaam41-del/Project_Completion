@@ -35,8 +35,8 @@ function send_completion_email(array $contact, array $project, string $approvalU
         );
     }
 
-    $headerLines = sprintf("From: %s\r\nReply-To: %s", $headers['From'], $headers['Reply-To']);
-    return mail($contact['email'], $subject, $message, $headerLines);
+    error_log('SMTP_HOST not set; email not sent. Configure SMTP_HOST or install sendmail.');
+    return false;
 }
 
 function smtp_send_mail(

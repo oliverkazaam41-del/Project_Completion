@@ -63,7 +63,7 @@ before running `docker compose up --build`.
 
 ## Email delivery
 
-The app can send email via SMTP when `SMTP_HOST` is set. Leave `SMTP_USERNAME` and
+The app sends email via SMTP when `SMTP_HOST` is set. Leave `SMTP_USERNAME` and
 `SMTP_PASSWORD` empty for unauthenticated servers. If `SMTP_HOST` is empty, the app
-falls back to PHP's built-in `mail()` function (requires a mail transfer agent).
+skips sending and logs a warning so you can configure SMTP or install a mail transfer agent.
 If email is not available, the app still marks the project completed and shows a flash message.
