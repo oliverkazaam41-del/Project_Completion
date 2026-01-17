@@ -1,6 +1,6 @@
 <?php
+require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/helpers.php';
 require_once __DIR__ . '/includes/email.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

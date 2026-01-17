@@ -1,6 +1,6 @@
 <?php
+require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/helpers.php';
 
 $projects = db()->query(
     'SELECT p.*, c.name AS client_name, ct.name AS contact_name, ct.email AS contact_email

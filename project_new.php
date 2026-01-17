@@ -1,6 +1,6 @@
 <?php
+require_once __DIR__ . '/includes/bootstrap.php';
 require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/helpers.php';
 
 $clients = db()->query('SELECT id, name FROM clients ORDER BY name')->fetchAll();
 
