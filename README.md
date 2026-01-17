@@ -32,6 +32,10 @@ export DB_USER=root
 export DB_PASSWORD=secret
 export APP_URL=http://localhost:8000
 export MAIL_FROM=noreply@example.com
+export SMTP_HOST=192.168.1.241
+export SMTP_PORT=25
+export SMTP_USERNAME=
+export SMTP_PASSWORD=
 ```
 
 3. Serve the app locally:
@@ -59,5 +63,7 @@ before running `docker compose up --build`.
 
 ## Email delivery
 
-The app uses PHP's built-in `mail()` function. Ensure your PHP environment is configured with a mail transfer agent.
+The app can send email via SMTP when `SMTP_HOST` is set. Leave `SMTP_USERNAME` and
+`SMTP_PASSWORD` empty for unauthenticated servers. If `SMTP_HOST` is empty, the app
+falls back to PHP's built-in `mail()` function (requires a mail transfer agent).
 If email is not available, the app still marks the project completed and shows a flash message.

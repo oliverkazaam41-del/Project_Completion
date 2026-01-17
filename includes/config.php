@@ -8,4 +8,8 @@ return [
     'db_password' => getenv('DB_PASSWORD') ?: '',
     'app_url' => rtrim(getenv('APP_URL') ?: 'http://localhost:8000', '/'),
     'mail_from' => getenv('MAIL_FROM') ?: 'noreply@example.com',
+    'smtp_host' => getenv('SMTP_HOST') ?: '',
+    'smtp_port' => getenv('SMTP_PORT') ?: '25',
+    'smtp_username' => getenv('SMTP_USERNAME') ?: '',
+    'smtp_password' => getenv('SMTP_PASSWORD') ?: '',
 ];

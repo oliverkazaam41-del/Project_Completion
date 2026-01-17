@@ -11,6 +11,10 @@ services:
       DB_PASSWORD: project_password
       APP_URL: http://localhost:8000
       MAIL_FROM: noreply@example.com
+      SMTP_HOST: ${SMTP_HOST:-}
+      SMTP_PORT: ${SMTP_PORT:-25}
+      SMTP_USERNAME: ${SMTP_USERNAME:-}
+      SMTP_PASSWORD: ${SMTP_PASSWORD:-}
     depends_on:
       - db
   db:
