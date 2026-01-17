@@ -6,7 +6,7 @@ A lightweight PHP app to track project details, associate projects with clients,
 - Client table with multiple projects per client.
 - Project records with contact and location details.
 - Mark a project as completed to email the primary contact with an approval link.
-- Contact approval closes the project.
+- Contact approval closes the project, and contacts can also decline with comments.
 
 ## Requirements
 - PHP 8.1+

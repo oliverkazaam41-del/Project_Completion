@@ -43,7 +43,9 @@ require __DIR__ . '/partials/header.php';
       <?php if ($project['status'] !== 'approved'): ?>
         <form method="post" action="/project_complete.php">
           <input type="hidden" name="id" value="<?php echo e($project['id']); ?>" />
-          <button class="button" type="submit">Mark completed + send email</button>
+          <button class="button" type="submit">
+            <?php echo $project['status'] === 'completed' || $project['status'] === 'declined' ? 'Resend approval email' : 'Mark completed + send email'; ?>
+          </button>
         </form>
       <?php else: ?>
         <p class="muted">Approved on <?php echo e(date('M d, Y', strtotime($project['approved_at']))); ?></p>
@@ -80,6 +82,10 @@ require __DIR__ . '/partials/header.php';
     <li>Created: <?php echo e(date('M d, Y', strtotime($project['created_at']))); ?></li>
     <li>Completed: <?php echo e($project['completed_at'] ? date('M d, Y', strtotime($project['completed_at'])) : 'Not completed'); ?></li>
     <li>Approved: <?php echo e($project['approved_at'] ? date('M d, Y', strtotime($project['approved_at'])) : 'Not approved'); ?></li>
+    <li>Declined: <?php echo e($project['declined_at'] ? date('M d, Y', strtotime($project['declined_at'])) : 'Not declined'); ?></li>
   </ul>
+  <?php if (!empty($project['decline_reason'])): ?>
+    <p class="meta"><strong>Decline reason:</strong> <?php echo e($project['decline_reason']); ?></p>
+  <?php endif; ?>
 </section>
 <?php require __DIR__ . '/partials/footer.php'; ?>

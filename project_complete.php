@@ -43,7 +43,14 @@ $approvalToken = $project['approval_token'] ?: bin2hex(random_bytes(24));
 
 $update = $pdo->prepare(
     'UPDATE projects
-     SET status = :status, completed_at = NOW(), approval_token = :token
+     SET status = :status,
+         completed_at = NOW(),
+         approval_token = :token,
+         declined_at = NULL,
+         decline_reason = NULL,
+         approval_name = NULL,
+         approval_signed_at = NULL,
+         approved_at = NULL
      WHERE id = :id'
 );
 $update->execute([
